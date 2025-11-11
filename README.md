@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reem Love Elegant Animation</title>
+<style>
+body, html {
+  margin: 0; padding: 0; height: 100%; 
+  display: flex; justify-content: center; align-items: center;
+  background: radial-gradient(circle at top, #3b004b, #000);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Heart */
+.heart {
+  position: relative;
+  width: 130px;
+  height: 120px;
+  background: #ff69b4;
+  transform: rotate(-45deg);
+  animation: beat 1s ease-in-out infinite;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 130px;
+  height: 120px;
+  background: #ff69b4;
+  border-radius: 50%;
+}
+.heart::before { top: -65px; left: 0; }
+.heart::after { left: 65px; top: 0; }
+@keyframes beat {
+  0%,100%{transform: scale(1) rotate(-45deg);}
+  25%{transform: scale(1.1) rotate(-45deg);}
+  50%{transform: scale(0.95) rotate(-45deg);}
+  75%{transform: scale(1.05) rotate(-45deg);}
+}
+
+/* Letter R */
+.letter {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px; font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,255,255,0.9);
+  animation: glowR 2s ease-in-out infinite alternate;
+}
+
+/* Glow animation for R */
+@keyframes glowR {
+  0% { text-shadow:0 0 10px #fff; }
+  50% { text-shadow:0 0 40px #fff; }
+  100% { text-shadow:0 0 15px #fff; }
+}
+
+/* Reem at bottom */
+.reem {
+  position: absolute;
+  bottom: 10%;
+  font-size: 2rem;
+  color: #ffb6c1;
+  font-family: 'Great Vibes', cursive;
+  animation: moveReem 5s ease-in-out infinite alternate;
+  text-shadow: 0 0 15px rgba(255,182,193,0.9);
+}
+@keyframes moveReem {
+  0% { transform: translateX(-150px); }
+  100% { transform: translateX(150px); }
+}
+
+/* Reem inside heart */
+.heart-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,182,193,0.9);
+  animation: fadeHeartText 2s ease-in-out infinite;
+}
+@keyframes fadeHeartText {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* I LOVE YOUUU */
+.bg {
+  position: fixed; inset:0;
+  display: flex; justify-content: center; align-items: center;
+  gap: 20px; pointer-events: none;
+  font-weight: 800; font-size: 5vw; letter-spacing: 5px;
+  color: rgba(255,182,193,0.6);
+}
+.bg span {
+  opacity: 0;
+  animation: fadeWords 6s ease-in-out infinite;
+}
+.bg span:nth-child(1){animation-delay:0s;}
+.bg span:nth-child(2){animation-delay:2s;}
+.bg span:nth-child(3){animation-delay:4s;}
+@keyframes fadeWords {
+  0%,100% { opacity:0; transform: scale(0.9); }
+  20%,80% { opacity:1; transform: scale(1); }
+}
+
+/* Simple stars */
+.star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle { 0%,100%{opacity:0.3;}50%{opacity:1;} }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="heart"></div>
+<div class="letter">R</div>
+<div class="heart-text">Reem</div>
+<div class="reem">Reem</div>
+<div class="bg">
+  <span>I</span>
+  <span>LOVE</span>
+  <span>YOUUU</span>
+</div>
+
+<script>
+// Create simple stars
+for(let i=0;i<50;i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.top = Math.random()*100+'vh';
+  star.style.left = Math.random()*100+'vw';
+  document.body.appendChild(star);
+}
+</script>
+</body>
+</html>
